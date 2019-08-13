@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{query}}
+{% endblock title %}
+
+{% block body %}
+	<h1>Search Result For {{query}} </h1>
+	{% for question in object_list %}
+		<ul class="list-group">
+			<li class="list-group-item">
+				<a href="{{ question.get_absolute_url }}">{{ question}}</a>
+				by
+				{{ question.user }}
+				on {{ question.created }}
+			</li>
+		</ul>
+	{% endfor %}
+{% endblock body %}
